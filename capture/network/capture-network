@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Baylor MyChart Network Capture Helper Script
+# This script captures network traffic from MyBSWHealth website
+
+# Check if parameter is provided
+if [[ -z "$1" ]]; then
+  echo "❌ Error: Please provide an endpoint parameter"
+  echo ""
+  echo "Usage: capture-network <endpoint>"
+  echo ""
+  echo "Examples:"
+  echo "  capture-network \"GetDetails\""
+  echo "  capture-network \"dashboard\""
+  echo "  capture-network \"/DT/Clinical/Allergies\""
+  exit 1
+fi
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Capture current directory
+CURRENT_DIR=$(pwd)
+
+# Change to script directory
+cd "$SCRIPT_DIR"
+
+# Run the capture script with the provided parameter
+echo "🎯 Capturing network for endpoint: $1"
+echo "📁 Working directory: $SCRIPT_DIR"
+echo ""
+node capture-endpoint.js "$1"
+
+# Return to the original directory
+cd "$CURRENT_DIR"
+echo ""
+echo "✅ Returned to: $CURRENT_DIR"

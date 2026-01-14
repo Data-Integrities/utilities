@@ -1,0 +1,23 @@
+{
+  "name": "baylor-screen-capture",
+  "version": "1.0.0",
+  "description": "Baylor MyChart screen capture tool for responsive Flutter development",
+  "main": "capture_server.js",
+  "scripts": {
+    "start": "node capture_server.js"
+  },
+  "keywords": [
+    "baylor",
+    "mychart",
+    "screen-capture",
+    "responsive",
+    "flutter",
+    "playwright"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "playwright": "^1.54.2"
+  }
+}

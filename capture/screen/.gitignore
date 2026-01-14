@@ -1,0 +1,32 @@
+# Never commit credentials!
+.env
+
+# Captured screen data (may contain sensitive information)
+captures/
+*.png
+*.jpg
+
+# Node modules
+node_modules/
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+server.log
+
+# Build artifacts
+build/
+dist/

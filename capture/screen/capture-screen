@@ -1,0 +1,41 @@
+#!/bin/bash
+# Baylor MyChart Screen Capture Helper Script
+# This script launches the screen capture server
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Capture current directory
+CURRENT_DIR=$(pwd)
+
+# Change to script directory
+cd "$SCRIPT_DIR"
+
+# Check for .env file and load it
+if [ -f .env ]; then
+  export $(grep -v '^#' .env | xargs)
+fi
+
+# Validate credentials
+if [ -z "$MYBSWHEALTH_USERNAME" ] || [ -z "$MYBSWHEALTH_PASSWORD" ]; then
+  echo "❌ Error: Missing credentials!"
+  echo ""
+  echo "Please set environment variables:"
+  echo "  export MYBSWHEALTH_USERNAME=\"your-email@example.com\""
+  echo "  export MYBSWHEALTH_PASSWORD=\"your-password\""
+  echo ""
+  echo "Or create a .env file (see .env.example)"
+  cd "$CURRENT_DIR"
+  exit 1
+fi
+
+# Run the capture server
+echo "🎯 Starting Baylor Screen Capture Server"
+echo "📁 Working directory: $SCRIPT_DIR"
+echo ""
+node capture_server.js
+
+# Return to the original directory
+cd "$CURRENT_DIR"
+echo ""
+echo "✅ Returned to: $CURRENT_DIR"
