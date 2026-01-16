@@ -36,6 +36,7 @@ rsync -avh --dry-run \
   --exclude='__tests__/' \
   --exclude='*.di*' \
   --exclude='*.local*' \
+  --exclude='MD-DOC-VARIABLES.json' \
   "$SOURCE" "$DEST"
 
 echo ""
@@ -62,6 +63,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
       --exclude='__tests__/' \
       --exclude='*.di*' \
       --exclude='*.local*' \
+      --exclude='MD-DOC-VARIABLES.json' \
       "$SOURCE" "$DEST"
 
     echo ""

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Token Manager Wrapper
+# Usage: ./token baylor prod
+#        ./token myhealth dev
+#        ./token --status
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+node "$SCRIPT_DIR/scripts/token-manager.mjs" "$@"
